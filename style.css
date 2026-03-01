@@ -140,3 +140,39 @@ header p {
     padding: 20px;
   }
 }
+
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px 40px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.filter-group label {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.filter-group select {
+  background: #151820;
+  color: var(--text);
+  border: none;
+  border-radius: 8px;
+  padding: 10px 12px;
+  min-width: 140px;
+  outline: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.filter-group select:hover {
+  background: #1c2030;
+}
