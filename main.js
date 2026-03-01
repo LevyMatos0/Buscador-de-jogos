@@ -10,21 +10,7 @@
   const filtroNota = document.getElementById("rating")
   const filtroAno = document.getElementById("year")
 
-  if (filtroNota.value === "") {
 
-  } else if (filtroNota.value === "4") {
-    if (game.rating > 4) {
-
-    }
-  } else if (filtroNota.value === "3") {
-    if (game.rating > 3) {
-
-    }
-  } else {
-    if (game.rating > 2) {
-
-    }
-  }
 
 
   async function buscarJogos() {
@@ -40,6 +26,24 @@
         const card = document.createElement("div");
         card.classList.add("card");
 
+  if (filtroNota.value === "") {
+
+  } else if (filtroNota.value === "4") {
+    if (game.rating < 4) {
+return;
+      
+    }
+  } else if (filtroNota.value === "3") {
+    if (game.rating < 3) {
+return;
+    }
+  } else {
+    if (game.rating < 2) {
+      return;
+    }
+  }
+
+
 
         card.innerHTML = `
           <img src="${game.background_image}">
@@ -49,6 +53,7 @@
         `
 
         results.appendChild(card);
+
       })
 
 
