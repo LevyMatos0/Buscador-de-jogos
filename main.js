@@ -22,11 +22,21 @@ async function buscarJogos() {
     const objeto = await response.json();
     console.log(objeto)
 
+      results.innerHTML = "";
+
     if (filtroOrdem.value === "rating") {//ordenar por notas se filtro estiver ativo
       objeto.results.sort((a, b) =>  b.rating - a.rating )}
 
-      results.innerHTML = "";
+      
+    if (filtroOrdem.value === "released") {
 
+      objeto.results.sort((a, b) => {
+       const anoA=Number(a.released?.slice(0,4)) ||0
+       const anoB=Number(b.released?.slice(0,4)) ||0
+
+        return anoB - anoA 
+      })
+    }
       objeto.results.forEach(game => {
         const card = document.createElement("div");
         card.classList.add("card");
