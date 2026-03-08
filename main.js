@@ -17,6 +17,8 @@ async function buscarJogos() {
   const termo = nome.value
   const URL = `https://api.rawg.io/api/games?search=${termo}&key=${API_KEY}`
 
+  results.innerHTML = "<p>🔎 Buscando jogos...</p>"
+  
   const response = await fetch(URL)
   if (response.status === 200) {
     const objeto = await response.json();
