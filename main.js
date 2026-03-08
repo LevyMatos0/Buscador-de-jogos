@@ -21,7 +21,10 @@ async function buscarJogos() {
   if (response.status === 200) {
     const objeto = await response.json();
     console.log(objeto)
-
+if (objeto.results.length === 0) {
+  results.innerHTML = "<p>Nenhum jogo encontrado.</p>"
+  return
+}
       results.innerHTML = "";
 
     if (filtroOrdem.value === "rating") {//ordenar por notas se filtro estiver ativo
@@ -37,6 +40,8 @@ async function buscarJogos() {
         return anoB - anoA 
       })
     }
+
+
       objeto.results.forEach(game => {
         const card = document.createElement("div");
         card.classList.add("card");
@@ -62,7 +67,7 @@ async function buscarJogos() {
 
         } else if (filtroAno.value === "2024") {
 
-          if (Number(game.released.slice(0, 4)) < 2024) {
+          if (Number(game.released?.slice(0,4)) < 2024) {
             return;
 
           }
@@ -74,16 +79,16 @@ async function buscarJogos() {
         }
         else if (filtroAno.value === "2022") {
 
-          if (Number(game.released.slice(0, 4)) < 2022) {
+          if (Number(game.released?.slice(0,4)) < 2022) {
             return;
           }
         } else if (filtroAno.value === "2020") {
 
-          if (Number(game.released.slice(0, 4)) < 2020)
+          if (Number(game.released?.slice(0,4)) < 2020)
             return;
         } else {
 
-          if (Number(game.released.slice(0, 4)) < 2015)
+          if (Number(game.released?.slice(0,4)) < 2015)
             return;
         }
 
@@ -104,7 +109,10 @@ async function buscarJogos() {
 
 
 
-
+if (response.status !== 200) {
+  results.innerHTML = "<p>Erro ao buscar jogos.</p>";
+  return;
+}
     }
 
   }
