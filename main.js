@@ -98,13 +98,16 @@ if (objeto.results.length === 0) {
 
 
 
-        card.innerHTML = `
-          <img src="${game.background_image}">
-          <h3>${game.name}</h3>
-          <p>⭐ <strong>${game.rating}</strong></p>
-          <p>📅 ${game.released?.slice(0, 4)}</p>
-        `
+card.innerHTML = `
+  <div class="card-img">
+    <img src="${game.background_image}">
+    <div class="overlay">Ver detalhes</div>
+  </div>
 
+  <h3>${game.name}</h3>
+  <p>⭐ <strong>${game.rating}</strong></p>
+  <p>📅 ${game.released?.slice(0, 4)}</p>
+`
         results.appendChild(card);
 
       })

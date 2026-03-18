@@ -151,18 +151,6 @@ header p {
   object-fit: cover;
 }
 
-/* OVERLAY HOVER */
-.card::after {
-  content: "Ver detalhes";
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  background: rgba(0,0,0,0.7);
-  text-align: center;
-  padding: 10px;
-  opacity: 0;
-  transition: 0.3s;
-}
 
 .card:hover::after {
   opacity: 1;
@@ -268,4 +256,28 @@ header p {
   .results {
     padding: 20px;
   }
+}
+
+
+.card-img {
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+
+  background: rgba(0,0,0,0.7);
+  color: white;
+
+  text-align: center;
+  padding: 10px;
+
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.card:hover .overlay {
+  opacity: 1;
 }
